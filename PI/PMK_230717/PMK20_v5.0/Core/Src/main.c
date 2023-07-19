@@ -1317,7 +1317,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //		 LED_Fail(2); //TEST
 		 
 		 //					/* +++++++++++++++++++++++++++++++++++++++++++++++*/
-					
+// test git					
 				//  Режимы работы ПМК 
       if (PMU_Mode == 0)
       { 
