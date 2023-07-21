@@ -465,7 +465,7 @@ int main(void)
 		
 		arrWord[220] = ADC_Error(0x4F);
 		
-		pmkError = arrWord[200]!= 0;
+		pmkError = arrWord[220]!= 0;//230721
 		
 		if (pmkError)
 		{arrWord[140]=arrWord[140]|0x1;}
@@ -1317,7 +1317,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //		 LED_Fail(2); //TEST
 		 
 		 //					/* +++++++++++++++++++++++++++++++++++++++++++++++*/
-// test git					
+// test git	
+// test git		 
 				//  Режимы работы ПМК 
       if (PMU_Mode == 0)
       { 
@@ -1499,10 +1500,21 @@ void preset_V(void)
 			
 			
 			// memory
-			if (arrWord[i] !=res[i]){ttr=1;}
-			if (arrWord[i+10] !=res[i+10]){ttr=1;}
-			if (arrWord[i+20] !=res[i+20]){ttr=1;}
-			if (arrWord[i+30] !=res[i+30]){ttr=1;}
+			if (arrWord[i] 		!=res[i])		
+				{
+					ttr=1;
+				}
+			if (arrWord[i+10] !=res[i+10])
+				{
+					ttr=1;
+				}
+			if (arrWord[i+20] !=res[i+20])
+				{
+					ttr=1;}
+			if (arrWord[i+30] !=res[i+30])
+				{
+					ttr=1;
+				}
 //			if (arrWord[i+40] !=res[i+40]){ttr=1;}
 					
 			
