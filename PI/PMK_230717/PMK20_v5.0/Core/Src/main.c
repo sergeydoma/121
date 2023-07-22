@@ -511,8 +511,11 @@ int main(void)
 //		
 //				HAL_I2C_Slave_Transmit(&hi2c1,arrI2c, 1, 1000);	
 				
+//				if (PMU_Mode==2)//230722
+//				{
+					preset_V(); // Предустановка с запиью параметров в Флеш
+//				}
 				
-				preset_V(); // Предустановка с запиью параметров в Флеш
 				
 				
 				ADC_CS(adc_current);
@@ -1486,7 +1489,7 @@ void preset_V(void)
 {
 		ttr = 0;
 	
-	
+		
 		MY_FLASH_ReadN (0, res, 50, DATA_TYPE_16);	// чтение всего из флеш
 
 		//		int i;
@@ -1528,10 +1531,15 @@ void preset_V(void)
 //				 arrWord[i+40] = 0;
 //				}
 		}
-			if ((ttr) & (PMU_Mode==2))
+			if (ttr)		// & (PMU_Mode==2)) 230722
 		{	
+			
+			__disable_irq();
 				
-			MY_FLASH_WriteN(0,arrWord,50,DATA_TYPE_16); // Запись измененных значений режима и уставок.		
+			MY_FLASH_WriteN(0,arrWord,50,DATA_TYPE_16); // Запись измененных значений режима и уставок.	
+
+			__enable_irq();
+			
 		}		
 
 }	

@@ -47,14 +47,14 @@ void MY_FLASH_WriteN(uint32_t idx, void *wrBuf, uint32_t Nsize, DataTypeDef data
 {
 	uint32_t flashAddress = MY_SectorAddrs + idx;
 	
-	//Erase sector before write
+	//Erase sector before write ???
     
 //    __disable_irq();
 	MY_FLASH_EraseSector();
     
     while ((FLASH->SR & FLASH_SR_BSY) != 0 );
 
-	
+	//9876
 	//Unlock Flash
 	HAL_FLASH_Unlock();
 	//Write to Flash
